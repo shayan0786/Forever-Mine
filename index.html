@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Saba 💖</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #000;
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+            cursor: default;
+        }
+
+        /* Sections */
+        .section {
+            min-height: 100vh;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            perspective: 1000px;
+        }
+
+        .section.active {
+            display: flex;
+            opacity: 1;
+            animation: pageFlipIn 1.5s ease-out;
+        }
+
+        /* Backgrounds */
+        #quiz-section { background: linear-gradient(135deg, #1a1a2e, #16213e); }
+        #face-section { background: linear-gradient(135deg, #8b0000, #b22222); }
+        #kamar-section { background: linear-gradient(135deg, #4b0082, #8a2be2); }
+        #ada-section { background: linear-gradient(135deg, #006400, #228b22); }
+        #eyes-section { background: linear-gradient(135deg, #8b4513, #daa520); }
+        #voice-section { background: linear-gradient(135deg, #191970, #4169e1); }
+        #hair-section { background: linear-gradient(135deg, #4b0082, #9400d3); }
+        #mole-section { background: linear-gradient(135deg, #8b0000, #ff4500); }
+        #love-section { background: linear-gradient(135deg, #ff1493, #ff69b4); }
+        #wedding-section { background: linear-gradient(135deg, #006400, #32cd32); }
+        #special-section { background: linear-gradient(135deg, #000080, #0000ff); }
+
+        /* Love Wave Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 107, 107, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 235, 59, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(76, 175, 80, 0.1) 0%, transparent 50%);
+            animation: waveMove 8s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes waveMove {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(1deg); }
+        }
+
+        /* Romantic Cards */
+        .love-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            padding: 50px 40px;
+            margin: 20px;
+            border-radius: 30px;
+            border: 3px solid rgba(255, 215, 0, 0.6);
+            max-width: 700px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease-out;
+            transform-style: preserve-3d;
+            animation: float3D 6s ease-in-out infinite, gentlePulse 4s ease-in-out infinite;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .love-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .love-card:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 107, 107, 0.4);
+        }
+
+        @keyframes float3D {
+            0%, 100% { 
+                transform: translateY(0px) rotateX(0deg) rotateY(0deg); 
+            }
+            25% { 
+                transform: translateY(-10px) rotateX(2deg) rotateY(1deg); 
+            }
+            50% { 
+                transform: translateY(-5px) rotateX(-1deg) rotateY(-2deg); 
+            }
+            75% { 
+                transform: translateY(-8px) rotateX(1deg) rotateY(2deg); 
+            }
+        }
+
+        @keyframes gentlePulse {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-5px) scale(1.02); }
+        }
+
+        .shayri {
+            font-size: 1.6em;
+            line-height: 2;
+            margin: 25px 0;
+            font-style: italic;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+            color: #ffeb3b;
+            animation: textGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            from {
+                text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+            }
+            to {
+                text-shadow: 2px 2px 20px rgba(255, 235, 59, 0.8), 
+                             0 0 30px rgba(255, 107, 107, 0.6);
+            }
+        }
+
+        .section-title {
+            font-size: 2.8em;
+            margin-bottom: 30px;
+            color: #ffeb3b;
+            text-shadow: 3px 3px 10px rgba(0,0,0,0.5);
+            animation: glow 2s infinite alternate;
+            background: linear-gradient(45deg, #ff6b6b, #ffeb3b, #4CAF50, #4169e1, #9400d3);
+            background-size: 400% 400%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 4s ease infinite, glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #ffeb3b; }
+            to { text-shadow: 0 0 30px #ffeb3b, 0 0 40px #ff6b6b; }
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes pageFlipIn {
+            0% {
+                opacity: 0;
+                transform: rotateY(90deg) scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: rotateY(0deg) scale(1);
+            }
+        }
+
+        @keyframes pageFlipOut {
+            0% {
+                opacity: 1;
+                transform: rotateY(0deg) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: rotateY(-90deg) scale(0.8);
+            }
+        }
+
+        /* Navigation */
+        .next-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ffeb3b);
+            border: none;
+            padding: 18px 35px;
+            font-size: 1.3em;
+            border-radius: 50px;
+            margin: 25px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            color: #000;
+            font-weight: bold;
+            opacity: 0;
+            transform: translateY(30px);
+            position: relative;
+            overflow: hidden;
+            animation: floatingText 6s ease-in-out infinite;
+        }
+
+        .next-btn.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .next-btn:hover {
+            transform: scale(1.15) translateY(-5px);
+            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.6);
+        }
+
+        .next-btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: rotate(45deg);
+            animation: buttonShine 3s infinite;
+        }
+
+        @keyframes buttonShine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        @keyframes floatingText {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Quiz Styles */
+        .quiz-option {
+            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+            border: none;
+            padding: 20px;
+            margin: 15px;
+            border-radius: 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            color: white;
+            width: 300px;
+        }
+
+        .quiz-option:hover {
+            transform: scale(1.08);
+            background: linear-gradient(135deg, #ff0000, #ff5252);
+        }
+
+        /* Floating Elements */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-element {
+            position: absolute;
+            font-size: 28px;
+            animation: floatElement 10s linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes floatElement {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* New Sparkle Animation */
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ffeb3b;
+            border-radius: 50%;
+            animation: sparkle 2s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes sparkle {
+            0% {
+                transform: scale(0) rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1) rotate(180deg);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(0) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Background Particle Effect */
+        .bg-particle {
+            position: fixed;
+            width: 3px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: floatParticle 15s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Section Transition Overlay */
+        .transition-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff6b6b, #ffeb3b, #4CAF50);
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            animation: transitionEffect 1s ease-in-out;
+        }
+
+        @keyframes transitionEffect {
+            0% { opacity: 0; transform: scale(0.8); }
+            50% { opacity: 0.7; transform: scale(1.1); }
+            100% { opacity: 0; transform: scale(1.3); }
+        }
+
+        /* Love Vibration Effect */
+        .love-vibration {
+            animation: vibrate 0.3s linear infinite;
+        }
+
+        @keyframes vibrate {
+            0% { transform: translate(0); }
+            25% { transform: translate(-2px, 2px); }
+            50% { transform: translate(0, -2px); }
+            75% { transform: translate(2px, 2px); }
+            100% { transform: translate(0); }
+        }
+
+        /* Rainbow Border Animation */
+        .rainbow-border {
+            border: 3px solid;
+            border-image: linear-gradient(45deg, #ff6b6b, #ffeb3b, #4CAF50, #4169e1, #9400d3) 1;
+            animation: borderRotate 3s linear infinite;
+        }
+
+        @keyframes borderRotate {
+            0% { border-image-source: linear-gradient(0deg, #ff6b6b, #ffeb3b, #4CAF50, #4169e1, #9400d3); }
+            100% { border-image-source: linear-gradient(360deg, #ff6b6b, #ffeb3b, #4CAF50, #4169e1, #9400d3); }
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255,255,255,0.1);
+            padding: 10px 20px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+
+        .progress-text {
+            color: #ffeb3b;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        /* Instruction */
+        .instruction {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 1em;
+            color: #ffeb3b;
+            z-index: 100;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+
+        /* Confetti Explosion */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #ff6b6b;
+            animation: confettiFall 5s linear forwards;
+            pointer-events: none;
+        }
+
+        .confetti:nth-child(odd) { background: #ffeb3b; }
+        .confetti:nth-child(3n) { background: #4CAF50; }
+        .confetti:nth-child(4n) { background: #4169e1; }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Heart Trail Effect */
+        .heart-trail {
+            position: fixed;
+            font-size: 20px;
+            pointer-events: none;
+            animation: heartTrail 1s ease-out forwards;
+            z-index: 1000;
+        }
+
+        @keyframes heartTrail {
+            0% {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(0) translateY(-50px);
+                opacity: 0;
+            }
+        }
+
+        /* Audio Visualizer Effect */
+        .audio-bars {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 2px;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .audio-bar {
+            width: 4px;
+            background: linear-gradient(to top, #ff6b6b, #ffeb3b);
+            border-radius: 2px 2px 0 0;
+            animation: audioPulse 0.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes audioPulse {
+            from { height: 5px; }
+            to { height: 25px; }
+        }
+
+        /* Love Message Rain */
+        .message-rain {
+            position: fixed;
+            top: -50px;
+            font-size: 1.2em;
+            color: #ffeb3b;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: messageRain 8s linear forwards;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        @keyframes messageRain {
+            0% {
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Romantic Glow Orb */
+        .glow-orb {
+            position: fixed;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255,107,107,0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: orbFloat 15s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes orbFloat {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            25% {
+                transform: translate(100px, -50px) scale(1.2);
+            }
+            50% {
+                transform: translate(-50px, 100px) scale(0.8);
+            }
+            75% {
+                transform: translate(-100px, -50px) scale(1.1);
+            }
+        }
+
+        /* Magnetic Appear Animation */
+        @keyframes magneticAppear {
+            0% {
+                opacity: 0;
+                transform: scale(0.8) translateY(50px);
+            }
+            60% {
+                transform: scale(1.05) translateY(-10px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        /* Typing Effect */
+        .typing-text {
+            overflow: hidden;
+            border-right: 3px solid #ffeb3b;
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #ffeb3b }
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress -->
+    <div class="progress-container">
+        <div class="progress-text" id="progressText">Our Love Story 💖</div>
+    </div>
+
+    <!-- Instruction -->
+    <div class="instruction" id="instruction">Click buttons to continue your romantic journey</div>
+
+    <!-- Transition Overlay -->
+    <div class="transition-overlay" id="transitionOverlay"></div>
+
+    <!-- Floating Elements -->
+    <div class="floating-elements" id="floatingElements"></div>
+
+    <!-- Audio Visualizer -->
+    <div class="audio-bars" id="audioBars"></div>
+
+    <!-- Glow Orbs -->
+    <div class="glow-orb" style="top: 20%; left: 10%;"></div>
+    <div class="glow-orb" style="top: 60%; left: 80%; animation-delay: -5s;"></div>
+    <div class="glow-orb" style="top: 80%; left: 30%; animation-delay: -10s;"></div>
+
+    <!-- Audio -->
+    <audio id="tumHiHo" loop>
+        <!-- Add your tum_hi_ho_instrumental.mp3 file -->
+        <source src="/love-song.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="teraMeraPyar">
+        <!-- Add your tera_mera_pyar_amar.mp3 file -->
+        <source src="/amar.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- SECTION 1: LOVE QUIZ -->
+    <div class="section active" id="quiz-section">
+        <h1 class="section-title">💝 Our Love Quiz 💝</h1>
+        <div class="love-card">
+            <h2 style="color: #ffeb3b; margin-bottom: 30px; font-size: 2em;">How Well Do You Know Our Story?</h2>
+            
+            <div style="margin: 25px 0;">
+                <button class="quiz-option" onclick="handleQuizAnswer(true)">January 17, 2025 - First Sight in Yellow</button>
+                <button class="quiz-option" onclick="handleQuizAnswer(false)">February 14, 2025 - Valentine's Day</button>
+            </div>
+
+            <div style="margin: 25px 0;">
+                <button class="quiz-option" onclick="handleQuizAnswer(true)">September 21 - You Said YES!</button>
+                <button class="quiz-option" onclick="handleQuizAnswer(false)">October 21 - One Month Later</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 2: FACE -->
+    <div class="section" id="face-section">
+        <h1 class="section-title">🌹 Your Beautiful Face</h1>
+        <div class="love-card">
+            <div class="shayri">
+                "Tera chehra ek aisi khushi hai<br>
+                Jise dekh kar dil ko sukoon milta hai<br>
+                Teri hansi mein chhupi hai wo baat<br>
+                Jise paane ke liye main jeeta hoon"
+            </div>
+            <div class="shayri">
+                "Your face is my favorite view<br>
+                That makes all my dreams come true<br>
+                Every feature so perfect and fine<br>
+                Forever will you be mine"
+            </div>
+        </div>
+        <button class="next-btn" onclick="nextSection('kamar-section')">Continue to Your Curves 💫</button>
+    </div>
+
+    <!-- SECTION 3: KAMAR -->
+    <div class="section" id="kamar-section">
+        <h1 class="section-title">💫 Your Beautiful Waist</h1>
+        <div class="love-card">
+            <div class="shayri">
+                "Teri kamar wo gazal hai<br>
+                Jise main har lamha gungunana chahta hoon<br>
+                Teri har ada wo nagma hai<br>
+                Jise sunkar main khona chahta hoon"
+            </div>
+            <div class="shayri">
+                "Your waist is poetry in motion<br>
+                A beautiful, graceful ocean<br>
+                Every curve tells a story so sweet<br>
+                Making my life complete"
+            </div>
+        </div>
+        <button class="next-btn" onclick="nextSection('ada-section')">Continue to Your Grace 🌸</button>
+    </div>
+
+    <!-- SECTION 4: ADA -->
+    <div class="section" id="ada-section">
+        <h1 class="section-title">🌸 Your Graceful Style</h1>
+        <div class="love-card">
+            <div class="shayri">
+                "Teri adaon ka hai jaadu sa<br>
+                Har ek move hai pyaar bhara<br>
+                Chaal mein wo baat hai khaas si<br>
+                Dil ko chhoo jaati hai har baar"
+            </div>
+            <div class="shayri">
+                "Your style has that special grace<br>
+                That puts a smile on my face<br>
+                Every move you make so fine<br>
+                Forever will you be mine"
+            </div>
+        </div>
+        <button class="next-btn" onclick="nextSection('eyes-section')">Continue to Your Eyes ✨</button>
+    </div>
+
+    <!-- SECTION 5: EYES -->
+    <div class="section" id="eyes-section">
+        <h1 class="section-title">✨ Your Mesmerizing Eyes</h1>
+        <div class="love-card">
+            <div class="shayri">
+                "Teri aankhein wo samandar hain<br>
+                Jin mein doob jaana chahta hoon<br>
+                In mein chhupi hain wo raaz<br>
+                Jo zindagi bhar padhna chahta hoon"
+            </div>
+            <div class="shayri">
+                "Your eyes are like deep oceans<br>
+                Filled with magical potions<br>
+                When I look into them I see<br>
+                Our beautiful destiny"
+            </div>
+        </div>
+        <button class="next-btn" onclick="nextSection('voice-section')">Continue to Your Voice 🎵</button>
+    </div>
+
+    <!-- SECTION 6: VOICE -->
+    <div class="section" id="voice-section">
+        <h1 class="section-title">🎵 Your Melodious Voice</h1>
+        <div class="love-card">
+            <div class="shayri">
+                "Teri aawaaz wo geet hai<br>
+                Jo mere dil ko behlata hai<br>
+                Har lafz mein wo pyaar hai<br>
+                Jo mujhe tadpata hai"
+            </div>
+            <div class="shayri">
+                "Your voice is my favorite song<br>
+                That helps me stay strong<br>
+                Every word you speak so clear<br>
+                Takes away all my fear"
+            </div>
+        </div>
+        <button class="next-btn" onclick="nextSection('hair-section')">Continue to Your Hair 🌊</button>
+    </div>
+
+    <!-- SECTION 7: HAIR -->
+    <div class="section" id="hair-section">
+        <h1 class="section-title">🌊 Your Beautiful Hair</h1>
+        <div class="love-card">
+            <div class="shayri">
+                "Tere baalon ka har ek resha<br>
+                Mere liye ek silsila hai pyaar ka<br>
+                In mein kho jaana chahta hoon<br>
+                Teri khushboo ko apna banana chahta hoon"
+            </div>
+            <div class="shayri">
+                "Your hair flows like a river<br>
+                That makes my heart shiver<br>
+                Every strand tells a tale<br>
+                That makes my love prevail"
+            </div>
+        </div>
+        <button class="next-btn" onclick="nextSection('mole-section')">Continue to Your Mole ⭐</button>
+    </div>
+
+    <!-- SECTION 8: MOLE -->
+    <div class="section" id="mole-section">
+        <h1 class="section-title">⭐ That Beautiful Mole</h1>
+        <div class="love-card">
+            <div class="shayri">
+                "Chehre pe wo til kya hai<br>
+                Sitara hai ya koi nishaan<br>
+                Jise dekh kar lagta hai<br>
+                Khuda ne banaya hai kuch khaas"
+            </div>
+            <div class="shayri">
+                "That mole upon your face so fair<br>
+                Shows how much God did care<br>
+                When creating someone so rare<br>
+                Beyond any compare"
+            </div>
+        </div>
+        <button class="next-btn" onclick="nextSection('love-section')">Continue to My Love Promise 💞</button>
+    </div>
+
+    <!-- SECTION 9: LOVE PROMISE -->
+    <div class="section" id="love-section">
+        <h1 class="section-title">💞 I Will Love You So Much</h1>
+        <div class="love-card">
+            <div class="shayri">
+                "Main tujhse itna pyaar karunga<br>
+                Har pal har lamha bita karunga<br>
+                Tere saath saari zindagi<br>
+                Ek khoobsurat kahani bana karunga"
+            </div>
+            <div class="shayri">
+                "I will love you more than words can say<br>
+                In every single possible way<br>
+                Through every night and every day<br>
+                Forever with you I'll stay"
+            </div>
+        </div>
+        <button class="next-btn" onclick="startTumHiHo(); nextSection('wedding-section')">Our Wedding Dreams 💒</button>
+    </div>
+
+    <!-- SECTION 10: WEDDING -->
+    <div class="section" id="wedding-section">
+        <h1 class="section-title">💒 Our Nikkah Dreams</h1>
+        <div class="love-card">
+            <div class="shayri">
+                "Inshaa Allah ek din aayega<br>
+                Jab tum mere saath nikkah karogi<br>
+                Surma pehen kar, laal dupatta<br>
+                Sabse haseen tum lagogi"
+            </div>
+            <div class="shayri">
+                "I see you in red on our nikkah day<br>
+                The most beautiful bride in every way<br>
+                We'll start our journey with Allah's grace<br>
+                And create our own special space"
+            </div>
+        </div>
+        <button class="next-btn" onclick="startTeraMeraPyar(); nextSection('special-section')">Final Surprise 💌</button>
+    </div>
+
+    <!-- SECTION 11: SPECIAL -->
+    <div class="section" id="special-section">
+        <h1 class="section-title">💌 Tera Mera Pyar Hai Amar</h1>
+        <div class="love-card">
+            <div class="shayri">
+                "Tera mera pyaar amar rahega<br>
+                Ye rishta hamesha ban kar rahega<br>
+                Chahe aaye kitni bhi mushkilein<br>
+                Hum dono saath saath rahenge"
+            </div>
+            <div class="shayri">
+                "Our love will stay eternal and true<br>
+                My every heartbeat belongs to you<br>
+                Through every storm we'll see it through<br>
+                Because my love for you is pure and true"
+            </div>
+            
+            <div style="margin-top: 40px; padding: 30px; background: rgba(255,255,255,0.1); border-radius: 20px; border: 2px solid gold;">
+                <h3 style="color: #ffeb3b; margin-bottom: 20px;">My Final Promise to You 💖</h3>
+                <p style="font-size: 1.3em; line-height: 1.8; color: #ffeb3b;">
+                    "My Dearest Saba,<br>
+                    From that first sight in yellow to forever<br>
+                    I promise to love you today, tomorrow, and always<br>
+                    Will you make me the happiest man and accept my love?<br><br>
+                    Forever Yours,<br>
+                    Your Madamji's Love 💖"
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSection = 'quiz-section';
+        const tumHiHo = document.getElementById('tumHiHo');
+        const teraMeraPyar = document.getElementById('teraMeraPyar');
+
+        // Create floating elements
+        function createFloatingElements() {
+            const container = document.getElementById('floatingElements');
+            const elements = ['💖', '💕', '🌟', '🎵', '🌹', '💫', '✨', '🌸', '⭐', '💞', '💒', '💌'];
+            
+            for (let i = 0; i < 15; i++) {
+                const element = document.createElement('div');
+                element.className = 'floating-element';
+                element.innerHTML = elements[Math.floor(Math.random() * elements.length)];
+                element.style.left = Math.random() * 100 + 'vw';
+                element.style.animationDuration = (Math.random() * 12 + 8) + 's';
+                element.style.animationDelay = Math.random() * 5 + 's';
+                element.style.fontSize = (Math.random() * 25 + 25) + 'px';
+                container.appendChild(element);
+            }
+        }
+
+        // Create sparkle effects
+        function createSparkles() {
+            const container = document.getElementById('floatingElements');
+            for (let i = 0; i < 8; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = Math.random() * 100 + 'vw';
+                sparkle.style.top = Math.random() * 100 + 'vh';
+                sparkle.style.animationDelay = Math.random() * 2 + 's';
+                container.appendChild(sparkle);
+            }
+        }
+
+        // Create background particles
+        function createParticles() {
+            const container = document.body;
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'bg-particle';
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        // Create audio visualizer
+        function createAudioVisualizer() {
+            const audioBars = document.getElementById('audioBars');
+            for (let i = 0; i < 50; i++) {
+                const bar = document.createElement('div');
+                bar.className = 'audio-bar';
+                bar.style.animationDelay = (i * 0.1) + 's';
+                audioBars.appendChild(bar);
+            }
+        }
+
+        // Create romantic message rain
+        function createMessageRain() {
+            const messages = ['Saba', 'Love', 'Forever', 'Madamji', '💖', 'Beautiful', 'My Love', 'Soulmate'];
+            const container = document.body;
+            
+            setInterval(() => {
+                if (Math.random() > 0.5) {
+                    const message = document.createElement('div');
+                    message.className = 'message-rain';
+                    message.textContent = messages[Math.floor(Math.random() * messages.length)];
+                    message.style.left = Math.random() * 100 + 'vw';
+                    message.style.animationDuration = (Math.random() * 5 + 5) + 's';
+                    container.appendChild(message);
+                    
+                    setTimeout(() => message.remove(), 8000);
+                }
+            }, 500);
+        }
+
+        // Create confetti explosion
+        function createConfetti() {
+            const container = document.body;
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                container.appendChild(confetti);
+                
+                setTimeout(() => confetti.remove(), 5000);
+            }
+        }
+
+        // Create heart trail on mouse move
+        document.addEventListener('mousemove', (e) => {
+            if (Math.random() > 0.7) {
+                const heart = document.createElement('div');
+                heart.className = 'heart-trail';
+                heart.innerHTML = '💖';
+                heart.style.left = e.clientX + 'px';
+                heart.style.top = e.clientY + 'px';
+                heart.style.fontSize = (Math.random() * 10 + 15) + 'px';
+                document.body.appendChild(heart);
+                
+                setTimeout(() => heart.remove(), 1000);
+            }
+        });
+
+        // Create sparkle burst
+        function createSparkleBurst() {
+            const container = document.getElementById('floatingElements');
+            for (let i = 0; i < 20; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = Math.random() * 100 + 'vw';
+                sparkle.style.top = Math.random() * 100 + 'vh';
+                sparkle.style.animation = 'sparkle 1s ease-out';
+                container.appendChild(sparkle);
+                
+                setTimeout(() => sparkle.remove(), 1000);
+            }
+        }
+
+        // Create click sparkles
+        function createClickSparkles(x, y) {
+            const container = document.getElementById('floatingElements');
+            for (let i = 0; i < 5; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = x + 'px';
+                sparkle.style.top = y + 'px';
+                sparkle.style.animationDelay = (i * 0.1) + 's';
+                container.appendChild(sparkle);
+                
+                setTimeout(() => {
+                    sparkle.remove();
+                }, 2000);
+            }
+        }
+
+        // Enhanced section transition
+        function nextSection(sectionId) {
+            // Show transition overlay
+            const overlay = document.getElementById('transitionOverlay');
+            overlay.style.animation = 'none';
+            void overlay.offsetWidth;
+            overlay.style.animation = 'transitionEffect 1s ease-in-out';
+            
+            // Create multiple effects
+            createConfetti();
+            createSparkleBurst();
+            
+            // Add page flip effect
+            document.getElementById(currentSection).style.animation = 'pageFlipOut 1s ease-in';
+            
+            setTimeout(() => {
+                document.getElementById(currentSection).classList.remove('active');
+                document.getElementById(sectionId).classList.add('active');
+                currentSection = sectionId;
+                
+                updateProgressText();
+                animateSection();
+                
+                // Magnetic attraction effect for cards
+                const cards = document.querySelectorAll('.love-card');
+                cards.forEach((card, index) => {
+                    card.style.animation = `magneticAppear 1s ease-out ${index * 0.2}s both`;
+                });
+            }, 800);
+        }
+
+        // Handle quiz answers
+        function handleQuizAnswer(isCorrect) {
+            if (isCorrect) {
+                // Mega celebration
+                for(let i = 0; i < 5; i++) {
+                    setTimeout(() => {
+                        createConfetti();
+                        createSparkleBurst();
+                    }, i * 200);
+                }
+                
+                // Love message rain
+                setTimeout(() => createMessageRain(), 1000);
+                
+                // Add rainbow border to all cards temporarily
+                const cards = document.querySelectorAll('.love-card');
+                cards.forEach(card => {
+                    card.classList.add('rainbow-border');
+                    setTimeout(() => {
+                        card.classList.remove('rainbow-border');
+                    }, 3000);
+                });
+                
+                alert('💖 Perfect! You remember our beautiful love story!');
+                setTimeout(() => {
+                    nextSection('face-section');
+                }, 2000);
+            } else {
+                // Gentle vibration effect
+                const cards = document.querySelectorAll('.love-card');
+                cards.forEach(card => {
+                    card.classList.add('love-vibration');
+                    setTimeout(() => {
+                        card.classList.remove('love-vibration');
+                    }, 500);
+                });
+                alert('😊 Let me remind you of our special moments together!');
+            }
+        }
+
+        // Start Tum Hi Ho song
+        function startTumHiHo() {
+            teraMeraPyar.pause();
+            tumHiHo.currentTime = 0;
+            tumHiHo.play().catch(e => console.log('Music play prevented'));
+        }
+
+        // Start Tera Mera Pyar song
+        function startTeraMeraPyar() {
+            tumHiHo.pause();
+            teraMeraPyar.currentTime = 0;
+            teraMeraPyar.play().catch(e => console.log('Music play prevented'));
+        }
+
+        // Update progress text
+        function updateProgressText() {
+            const progressMap = {
+                'quiz-section': 'Our Love Quiz 💝',
+                'face-section': 'Your Beautiful Face 🌹',
+                'kamar-section': 'Your Graceful Curves 💫',
+                'ada-section': 'Your Elegant Style 🌸',
+                'eyes-section': 'Your Mesmerizing Eyes ✨',
+                'voice-section': 'Your Melodious Voice 🎵',
+                'hair-section': 'Your Beautiful Hair 🌊',
+                'mole-section': 'That Special Mole ⭐',
+                'love-section': 'My Love Promise 💞',
+                'wedding-section': 'Our Wedding Dreams 💒',
+                'special-section': 'Forever Together 💌'
+            };
+            document.getElementById('progressText').textContent = progressMap[currentSection];
+        }
+
+        // Animate section elements
+        function animateSection() {
+            const section = document.getElementById(currentSection);
+            
+            setTimeout(() => {
+                const cards = section.querySelectorAll('.love-card');
+                const buttons = section.querySelectorAll('.next-btn');
+                
+                cards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.classList.add('visible');
+                        // Add rainbow border to every 3rd card
+                        if (index % 3 === 0) {
+                            card.classList.add('rainbow-border');
+                        }
+                    }, index * 400);
+                });
+                
+                buttons.forEach((button, index) => {
+                    setTimeout(() => {
+                        button.classList.add('visible');
+                    }, (cards.length + index) * 400);
+                });
+
+                // Add typing effect to section title
+                const title = section.querySelector('.section-title');
+                if (title) {
+                    title.classList.add('typing-text');
+                }
+            }, 500);
+        }
+
+        // Enhanced initialization
+        window.onload = function() {
+            createFloatingElements();
+            createSparkles();
+            createParticles();
+            createAudioVisualizer();
+            createMessageRain();
+            updateProgressText();
+            animateSection();
+            
+            // Add click effects anywhere on page
+            document.addEventListener('click', function(e) {
+                createClickSparkles(e.clientX, e.clientY);
+            });
+            
+            // Auto-play music on first interaction
+            document.addEventListener('click', function initMusic() {
+                tumHiHo.play().catch(e => console.log('Auto-play prevented'));
+                document.removeEventListener('click', initMusic);
+                
+                // Create initial celebration
+                for(let i = 0; i < 3; i++) {
+                    setTimeout(() => {
+                        createConfetti();
+                        createSparkleBurst();
+                    }, i * 300);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
